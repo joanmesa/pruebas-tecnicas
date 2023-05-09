@@ -65,6 +65,17 @@ const showSuperheroInfo = (nameSuperheroe) => {
     return descriptionSuperheroe;
 }
 
+const showSuperheroInfo2 = (nameSuperheroe) => {
+    let descriptionSuperheroe = "";
+    if (nameSuperheroe in infoSuperheroes) {
+        const { nombreReal, poderes, equipo } = infoSuperheroes[nameSuperheroe];
+        descriptionSuperheroe += `Nombre real : ${nombreReal}\n`;
+        descriptionSuperheroe += `Poderes : ${poderes}\n`;
+        descriptionSuperheroe += `Equipo : ${equipo}\n\n`;
+        return descriptionSuperheroe;
+    }
+    return "NO existe el superheroe";
+}
 
 const showSuperherosInfo = (superheroes) => {
     let descriptionSuperheroes = '';
@@ -74,9 +85,21 @@ const showSuperherosInfo = (superheroes) => {
     return descriptionSuperheroes;
 }
 
+const showSuperherosInfo2 = (superheroes) => {
+    let descriptionSuperheroes = '';
+    superheroes.forEach(item => {
+        descriptionSuperheroes = showSuperheroInfo2(item);
+    });
+    return descriptionSuperheroes;
+}
+
+
 const superheroeList = ['Thor', 'Hulk'];
 
-console.log(showSuperheroInfo('Capitán América'));
-console.log(showSuperherosInfo(superheroeList));
+// console.log(showSuperheroInfo('Capitán América'));
+// console.log(showSuperherosInfo(superheroeList));
+
+// console.log(showSuperheroInfo2('Huwlk'));
+console.log(showSuperherosInfo2(superheroeList));
 
 
