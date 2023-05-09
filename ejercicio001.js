@@ -59,12 +59,24 @@ const showSuperheroInfo = (nameSuperheroe) => {
             const { nombreReal, poderes, equipo } = value;
             descriptionSuperheroe += `Nombre real : ${nombreReal}\n`;
             descriptionSuperheroe += `Poderes : ${poderes}\n`;
-            descriptionSuperheroe += `Equipo : ${equipo}`;
+            descriptionSuperheroe += `Equipo : ${equipo}\n\n`;
         }
     }
     return descriptionSuperheroe;
 }
 
-console.log(showSuperheroInfo('Iron Man'));
+
+const showSuperherosInfo = (superheroes) => {
+    let descriptionSuperheroes = '';
+    for (const item of superheroes) {
+        descriptionSuperheroes += showSuperheroInfo(item);
+    }
+    return descriptionSuperheroes;
+}
+
+const superheroeList = ['Thor', 'Hulk'];
+
+console.log(showSuperheroInfo('Capitán América'));
+console.log(showSuperherosInfo(superheroeList));
 
 
